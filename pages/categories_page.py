@@ -19,8 +19,14 @@ class CategoriesPage:
         logger.info("Enter button pressed")
 
     def get_all_streamers(self) -> list:
-        # get all the locators for the live streamers
+        self.page.get_by_role("button", name="live").first.wait_for(state="visible")
         all_locators = self.page.get_by_role("button", name="live").all()
         logger.info("Locators for live streamers collected")
         logger.debug(f"Locators list: {all_locators}")
         return all_locators
+
+    def take_screenshot(self):
+        # wait for page to load to take a screenshot with clear video
+        self.page.wait_for_timeout(2000)
+        self.page.screenshot(path="screenshot.png")
+        logger.info("Screenshot saved")

@@ -23,4 +23,4 @@ def test_twitch_streamer(page: Page):
     categories_page.page.mouse.wheel(0, 200)
     streamers = categories_page.get_all_streamers()
     streamers[0].click()
-    categories_page.page.screenshot(path="output.png")
+    categories_page.take_screenshot()
