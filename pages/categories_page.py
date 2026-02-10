@@ -28,5 +28,5 @@ class CategoriesPage:
     def take_screenshot(self):
         # wait for page to load to take a screenshot with clear video
         self.page.wait_for_timeout(2000)
-        self.page.screenshot(path="screenshot.png")
+        self.page.screenshot(path="images/screenshot.png")
         logger.info("Screenshot saved")
